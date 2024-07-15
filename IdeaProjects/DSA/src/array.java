@@ -1,7 +1,14 @@
+import service.AdvancedCalculator;
+import service.inheritance;
+import service.inheritance.*;
 class student{
     int rollno;
     String name;
     int classno;
+
+    AdvancedCalculator ad = new AdvancedCalculator();
+
+
 }
 
 public class array {

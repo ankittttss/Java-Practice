@@ -1,11 +1,34 @@
 class Mobile{
     String Company;
     int price;
-    static String phone;
+    static String phone;  // Static Variable
 
     public void getDetails(){
         System.out.println(Company + " " + price + " " + phone);
     }
+
+    {/*Static Block that helps you to instantiate for a single time*/}
+
+    static
+    {
+        phone = "smartphone";
+    }
+
+
+    {/*We can instantiate the values using a constructor*/}
+
+    public Mobile(){
+      Company = "";
+      price = 120;
+    }
+
+   {/*When you have to call the non-static method you have to create object of it*/}
+
+    public static void details(Mobile obj){
+        System.out.println(obj.Company + " " + obj.price + " " + phone);
+    }
+
+
 }
 
 
@@ -24,8 +47,11 @@ public class statickeyword{
         
         mob1.getDetails();
         mob2.getDetails();
+        Mobile.details(mob1);
 
+        {/*We cannot use non-static method inside static method, We have to pass the Object in the param*/}
         {/*Static keyword Variable can only be called by Class itself not the object*/}
+
     }
 }
 

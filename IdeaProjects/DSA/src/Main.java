@@ -1,9 +1,8 @@
 import javax.sound.midi.SysexMessage;
+import service.*;
 
 public class Main {
     public static void main(String[] args) {
-
-
         boolean check = true;
         byte number3 = 123;
 
@@ -11,6 +10,9 @@ public class Main {
         // Here in Java boolean only consider true or false not 1 or 0
 
         // Type Conversion -:
+
+        AdvancedCalculator ad = new AdvancedCalculator();
+        double log = ad.logarithmic(4);
 
         byte a = 12;
         int b = 34;
