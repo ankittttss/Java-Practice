@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 class collectionapi {
      public void setDataStructure(){
@@ -79,6 +81,13 @@ class collectionapi {
              }
          };
 
+         Consumer<Integer> con = new Consumer<Integer>() {
+             @Override
+             public void accept(Integer n) {
+                 System.out.println(n);
+             }
+         };
+
        Comparator<Integer> comp1 = new Comparator<Integer>(){
             public int compare(Integer i,Integer j){
                if(i%10 > j%10)
@@ -90,7 +99,7 @@ class collectionapi {
 
          {/*For each Loop*/}
          System.out.println("Lmabda Expression");
-         list2.forEach(n-> System.out.println(n));
+         list1.forEach(con);
 
        for(int i=1;i<=10;i++){
            list1.add(i);
@@ -116,6 +125,26 @@ class collectionapi {
          {/*We need to make default comparator to sort the list*/}
 
      }
+
+     public  void streamOperation(){
+         List<Integer> list1 = new ArrayList<>();
+         list1.add(20);
+         list1.add(21);
+         list1.add(31);
+         list1.add(41);
+
+         Stream<Integer> s1 = list1.stream();
+         s1.forEach(n-> System.out.println(n));
+
+         Stream<Integer> stream2 = list1.stream().filter(n->n%2!=0);
+         stream2.forEach(n -> System.out.println(n));
+
+         Stream<Integer> stream3 = list1.stream().map(n->n*2);
+         stream3.forEach(n-> System.out.println(n));
+
+         int sum = list1.stream().reduce(0,(c,e)->c+e);
+         System.out.println(sum);
+     }
 }
 
 public class collection{
@@ -140,6 +169,7 @@ public class collection{
    api.mapDataStructure();
    System.out.println("Ended");
    api.comparator();
+   api.streamOperation();
 
     }
 }
